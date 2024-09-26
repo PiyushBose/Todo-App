@@ -1,0 +1,61 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: #3e7cb1;
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    margin-top: 40vh;
+    padding: 30px;
+    border-radius: 6px;
+    display: inline-block;
+    background-color: #054a91;
+}
+
+input{
+    border-radius: 4px;
+    background-color: #dbe4ee;
+    border: none;
+    padding: 4px;
+}
+
+#add{
+    background-color: #81a4cd;
+    border: none;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.edit{
+    padding: 2px;
+    margin: 2px;
+    background-color: green;
+    border: 0.5px solid black;
+    border-radius: 2px;
+    font-size: 10px;
+}
+
+.del{
+    padding: 2px;
+    margin: 2px;
+    background-color: #f17300;
+    border: 0.5px solid black;
+    border-radius: 2px;
+    font-size: 10px;
+}
+
+.check{
+    margin: 3.5px 2px 2px 2px;
+    height: 15px;
+}
+
+.task{
+    width: 67%;
+    padding-top: 1px;
+    font-size: 17px;
+}
