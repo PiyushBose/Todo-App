@@ -38,6 +38,42 @@ function changeStatus(idx){
     
 }
 
+function updateTodo(idx){
+    const edittedTask = document.createElement("div");
+    edittedTask.classList.add("task");
+
+    todos[idx] = {title : document.querySelector("#up-inp").value}
+
+    document.querySelector("#up-inp").remove();
+    document.querySelector(`#edit${idx}`).parentNode.childNodes[0].after(edittedTask);
+
+    document.querySelector(`#edit${idx}`).innerHTML = "Edit";
+
+    render();
+}
+
+function editTodo(idx){
+    const toEdit = document.querySelector(`#edit${idx}`).parentNode.childNodes[1];
+    const newInput = document.createElement("input");
+
+    newInput.classList.add("task");
+    newInput.setAttribute("id", "up-inp");
+    newInput.value = toEdit.innerHTML;
+
+    toEdit.remove();
+    document.querySelector(`#edit${idx}`).parentNode.childNodes[0].after(newInput);
+    document.querySelector(`#edit${idx}`).innerHTML = "Done";
+
+    newInput.addEventListener("keypress", (e)=>{
+        if(e.key === "Enter"){
+            e.preventDefault();
+            updateTodo(idx);
+        }
+    })
+
+    document.querySelector(`#edit${idx}`).setAttribute("onclick", `updateTodo(${idx})`);
+    
+}
 
 function createComponent(todo, idx){
     const div = document.createElement("div");
@@ -49,7 +85,10 @@ function createComponent(todo, idx){
     checkbox.setAttribute("type", "checkbox");
     checkbox.setAttribute("id", `check${idx}`);
     checkbox.setAttribute("onclick", `changeStatus(${idx})`);
+
     editBtn.setAttribute("onclick", `editTodo(${idx})`);
+    editBtn.setAttribute("id", `edit${idx}`);
+
     delBtn.setAttribute("onclick", `deleteTodo(${idx})`);
 
     editBtn.innerHTML = "Edit";
