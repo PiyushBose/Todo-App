@@ -56,7 +56,7 @@ function editTodo(idx){
     const toEdit = document.querySelector(`#edit${idx}`).parentNode.childNodes[1];
     const newInput = document.createElement("input");
 
-    newInput.classList.add("task");
+    newInput.classList.add("upt-inp");
     newInput.setAttribute("id", "up-inp");
     newInput.value = toEdit.innerHTML;
 
